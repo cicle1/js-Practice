@@ -35,7 +35,7 @@ function deepClone(obj = {}) {
     result = {};
   }
   for (const key in obj) {
-    //hasOwnProperty 保证传入的 key 不是原型的属性
+    //hasOwnProperty 保证传入的 key 不是原型的属性 而是自己的属性
     if (obj.hasOwnProperty(key)) {
       //递归调用
       result[key] = deepClone(obj[key]);
