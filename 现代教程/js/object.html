@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    let prices = {
+        banana: 1,
+        orange: 2,
+        meat: 4,
+      };
+      
+      let doublePrices = Object.fromEntries(
+        // 转换为数组，之后使用 map 方法，然后通过 fromEntries 再转回到对象
+        Object.entries(prices).map(([key, value]) => [key, value * 2])
+      );
+      
+      alert(doublePrices.meat); // 8
+</body>
+</html>

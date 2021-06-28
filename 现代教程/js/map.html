@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* let map = new Map()
+        map.set([0, 1], 1)
+        map.set([0, 2], 0)
+        let key = [...map.keys()]
+        document.write(map.has(key[0]))
+        console.log(key) */
+        /* 
+                let map = new Map()
+                map.set(String([0, 1]), 1)
+                map.set(String([0, 2]), 0)
+                let key = [...map.keys()]
+                document.write(map.has(String([0,1])))
+                console.log(key) */
+        /*   let set = new Set();
+  
+          let john = { name: "John" };
+          let pete = { name: "Pete" };
+          let mary = { name: "Mary" };
+  
+          // visits，一些访客来访好几次
+          set.add(john);
+          set.add(pete);
+          set.add(mary);
+          set.add(john);
+          set.add(mary);
+          console.log(set) */
+        // set 只保留不重复的值
+        // alert(set.size); // 3
+
+        // for (let user of set) {
+        //     alert(user.name); // John（然后 Pete 和 Mary）
+        // }
+
+
+        // 过滤数组中的唯一元素
+        // 重要程度: 5
+        // 定义 arr 为一个数组。
+
+        // 创建一个函数 unique(arr) ，该函数返回一个由 arr 中所有唯一元素所组成的数组。
+
+        // 例如：
+
+        // function unique(arr) {
+        //     /* 你的代码 */
+        // }
+
+        // let values = ["Hare", "Krishna", "Hare", "Krishna",
+        //     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        // ];
+
+        // alert(unique(values)); // Hare, Krishna, :-O
+        // P.S.这里用到了 string 类型，但其实可以是任何类型的值。
+
+        // P.S.使用 Set 来存储唯一值。
+        /* function unique(arr) {
+         
+            return Array.from(new Set(arr))
+        }
+        let values = ["Hare", "Krishna", "Hare", "Krishna",
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+        alert(unique(values)); // Hare, Krishna, :-O */
+
+
+
+        // 过滤字谜（anagrams）
+        // 重要程度: 4
+        // Anagrams 是具有相同数量相同字母但是顺序不同的单词。
+
+        // 例如：
+
+        // nap - pan
+        // ear - are - era
+        // cheaters - hectares - teachers
+        // 写一个函数 aclean(arr) ，它返回被清除了字谜（anagrams）的数组。
+
+        // 例如：
+
+        // let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+        // alert(aclean(arr)); // "nap,teachers,ear" or "PAN,cheaters,era"
+        // 对于所有的字谜（anagram）组，都应该保留其中一个词，但保留的具体是哪一个并不重要。
+
+        // let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+        // function aclean(arr) {
+        //     let map = new Map();
+        //     console.log(arr)
+        //     for (let word of arr) {
+        //         // 将单词 split 成字母，对字母进行排序，之后再 join 回来
+        //         let sorted = word.toLowerCase().split('').sort().join(''); // (*)
+        //         console.log(word)
+        //         console.log(sorted)
+        //         map.set(sorted, word);
+        //         // let sorted = word // PAN
+        //         //     .toLowerCase() // pan
+        //         //     .split('') // ['p','a','n']
+        //         //     .sort() // ['a','n','p']
+        //         //     .join(''); // anp
+
+        //     }
+        //     console.log(map)
+        //     return Array.from(map.values());
+        // }
+        // alert(aclean(arr)); // "nap,teachers,ear" or "PAN,cheaters,era"
+        //在这里，我们也可以使用普通对象（plain object）而不用 Map，因为键就是字符串。
+
+        //下面是解决方案：
+
+        /*  function aclean(arr) {
+             let obj = {};
+ 
+             for (let i = 0; i < arr.length; i++) {
+                 let sorted = arr[i].toLowerCase().split("").sort().join("");
+                 obj[sorted] = arr[i];
+             }
+ 
+             return Object.values(obj);
+         }
+ 
+         let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+ 
+         alert(aclean(arr)); */
+
+
+        // 迭代键
+        // 重要程度: 5
+        // 我们期望使用 map.keys() 得到一个数组，然后使用特定的方法例如.push 等，对其进行处理。
+
+        // 但是运行不了：
+
+        // let map = new Map();
+
+        // map.set("name", "John");
+
+        // let keys = map.keys();
+
+        // // Error: keys.push is not a function
+        // keys.push("more");
+        /* // 为什么？我们应该如何修改代码让 keys.push 工作？
+        // let map = new Map();
+
+        // map.set("name", "John");
+
+        // let keys = Array.from(map.keys());
+        
+        // console.log(keys)
+        // // Error: keys.push is not a function
+        // keys.push("more"); */
+
+
+        //WeakMap and WeakSet（弱映射和弱集合）
+        // WeakMap 是类似于 Map 的集合，它仅允许对象作为键，并且一旦通过其他方式无法访问它们，便会将它们与其关联值一同删除。
+
+        // WeakSet 是类似于 Set 的集合，它仅存储对象，并且一旦通过其他方式无法访问它们，便会将其删除。
+
+        // 它们都不支持引用所有键或其计数的方法和属性。仅允许单个操作。
+
+        // WeakMap 和 WeakSet 被用作“主要”对象存储之外的“辅助”数据结构。一旦将对象从主存储器中删除，如果该对象仅被用作 WeakMap 或 WeakSet 的键，那么它将被自动清除。
+
+
+        /* 存储 "unread" 标识
+        重要程度: 5
+        这里有一个 messages 数组：
+        
+        let messages = [
+          {text: "Hello", from: "John"},
+          {text: "How goes?", from: "John"},
+          {text: "See you soon", from: "Alice"}
+        ];
+        你的代码可以访问它，但是 message 是由其他人的代码管理的。该代码会定期添加新消息，删除旧消息，但是你不知道这些操作确切的发生时间。
+        
+        现在，你应该使用什么数据结构来保存关于消息“是否已读”的信息？该结构必须很适合对给定的 message 对象给出“它读了吗？”的答案。
+        
+        P.S. 当一个消息被从 messages 中删除后，它应该也从你的数据结构中消失。
+        
+        P.S. 我们不能修改 message 对象，例如向其添加我们的属性。因为它们是由其他人的代码管理的，我们修改该数据可能会导致不好的后果。 */
+
+        let messages = [
+            { text: "Hello", from: "John" },
+            { text: "How goes?", from: "John" },
+            { text: "See you soon", from: "Alice" }
+        ];
+        let readMessages = new WeakSet();
+        // 两个消息已读
+        readMessages.add(messages[0]);
+        readMessages.add(messages[1]);
+        // readMessages 包含两个元素
+
+        // ……让我们再读一遍第一条消息！
+        readMessages.add(messages[0]);
+        // readMessages 仍然有两个不重复的元素
+
+        // 回答：message[0] 已读？
+        alert("Read message 0: " + readMessages.has(messages[0])); // true
+
+        messages.shift();
+       // 现在 readMessages 有一个元素（技术上来讲，内存可能稍后才会被清理）
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 200px auto;
+            background: rgb(16, 179, 207);
+        }
+    
+        ul li {
+            float: left;
+            border: 1px solid red;
+            width: 70px;
+            height: 40px;
+            background: url('../code/image/精灵图.png') no-repeat;
+            list-style: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        //1.获取元素
+        let lis = document.querySelectorAll('li')
+        for (let i = 0; i < lis.length; i++) {
+            //让索引号乘以44就是每个li 的背景y坐标 index就是我们的 y坐标
+            let index = i * 44;
+            lis[i].style.backgroundPosition = '20px -' + index + 'px'
+        }
+    </script>
+</body>
+
+</html>

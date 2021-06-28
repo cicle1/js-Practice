@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #000;
+      }
+      .content {
+        width: 600px;
+        height: 200px;
+        margin: 300px auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .boll {
+        background-color: greenyellow;
+        border-radius: 50%;
+        border: 100px solid transparent;
+        width: 0;
+        height: 0;
+        border-right-color: #000;
+        animation: toopen .5s 0s linear infinite;
+        
+      }
+      .boll1 {
+        position: absolute;
+        left:0;
+        top: 0;
+        background-color: greenyellow;
+        border-radius: 50%;
+        border: 100px solid transparent;
+        width: 0;
+        height: 0;
+        border-right-color: #000;
+        z-index: -1;
+      }
+      .row {
+        width: 370px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 30px;
+      }
+      .b{
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border-radius: 50%;
+        margin:0 15px;
+        animation: toLeft .5s 0s linear infinite;
+
+      }
+      @keyframes toLeft{
+        0%{
+          transform: translateX(-25px);
+        }
+        50%{
+          transform: translateX(-75px);
+        }
+        100%{
+          transform: translateX(-115px);
+        }
+      }
+      @keyframes toopen {
+        0%{
+          transform: rotateX(10deg)	
+        }
+        50%{
+          transform: rotateX(40deg)	
+        }
+        100%{
+          transform: rotateX(60deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="boll"></div>
+      <div class="boll1"></div>
+      <div class="row">
+        <div class="b"></div>
+        <div class="b"></div>
+        <div class="b"></div>
+        <div class="b"></div>
+      </div>
+    </div>
+  </body>
+</html>

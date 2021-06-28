@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <img src="../code/image/ange.gif" alt="">
+    <script>
+        let pic = document.querySelector('img')
+        document.addEventListener('mousemove', function (e) {
+            //1.mousemove只要鼠标移动1px就会触发这个事件
+            console.log(e)
+            //2.核心原理：每次移动鼠标我们都会活得最新的鼠标坐标，把这个x和y坐标作为图片的top和left值就可以移动图片
+            let x = e.pageX
+            let y = e.pageY
+            console.log('x坐标是' + x, 'y坐标是' + y)
+            //3.不要忘记给left 和top 添加px 单位
+            pic.style.left = x - 143 + 'px';
+            pic.style.top = y - 150 + 'px';
+        })
+    </script>
+</body>
+
+</html>

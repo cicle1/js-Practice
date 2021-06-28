@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="ol">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+      </ol>
+  
+
+<script>
+   ol.before('before'); // 将字符串 "before" 插入到 <ol> 前面
+   ol.after('after'); // 将字符串 "after" 插入到 <ol> 后面
+
+  let liFirst = document.createElement('li');
+   liFirst.innerHTML = 'prepend';
+   ol.prepend(liFirst); // 将 liFirst 插入到 <ol> 的最开始
+
+  let liLast = document.createElement('li');
+  liLast.innerHTML = 'append';
+  ol.append(liLast); // 将 liLast 插入到 <ol> 的最末尾
+</script>
+
+</body>
+</html>

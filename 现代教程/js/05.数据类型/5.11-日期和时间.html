@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        总结
+在 JavaScript 中，日期和时间使用 Date 对象来表示。我们不能只创建日期，或者只创建时间，Date 对象总是同时创建两者。
+月份从 0 开始计数（对，一月是 0）。
+一周中的某一天 getDay() 同样从 0 开始计算（0 代表星期日）。
+当设置了超出范围的组件时，Date 会进行自我校准。这一点对于日/月/小时的加减很有用。
+日期可以相减，得到的是以毫秒表示的两者的差值。因为当 Date 被转换为数字时，Date 对象会被转换为时间戳。
+使用 Date.now() 可以更快地获取当前时间的时间戳。
+和其他系统不同，JavaScript 中时间戳以毫秒为单位，而不是秒。
+
+有时我们需要更加精准的时间度量。JavaScript 自身并没有测量微秒的方法（百万分之一秒），但大多数运行环境会提供。例如：浏览器有 performance.now() 方法来给出从页面加载开始的以毫秒为单位的微秒数（精确到毫秒的小数点后三位）：
+
+alert(`Loading started ${performance.now()}ms ago`);
+// 类似于 "Loading started 34731.26000000001ms ago"
+// .26 表示的是微秒（260 微秒）
+// 小数点后超过 3 位的数字是精度错误，只有前三位数字是正确的
+Node.js 有 microtime 模块以及其他方法。从技术上讲，几乎所有的设备和环境都允许获取更高精度的数值，只是不是通过 Date 对象。
+     -->
+    <script>
+        /* 创建一个 Date 对象，日期是：Feb 20, 2012, 3:12am。时区是当地时区。
+        
+        使用 alert 显示结果。
+        new Date 构造函数默认使用本地时区。所以唯一需要牢记的就是月份从 0 开始计数。
+        
+        所以二月对应的数值是 1。
+         */
+
+
+        // let d = new Date(2012, 1, 20, 3, 12);
+        // alert(d);
+
+        /* 
+        编写一个函数 getWeekDay(date) 以短格式来显示一个日期的星期数：‘MO’，‘TU’，‘WE’，‘TH’，‘FR’，‘SA’，‘SU’。
+         */
+        /*     function getWeekDay(date) {
+                let days = ['日', '一', '二', '三', '四', '五', '六'];
+                return days[date.getDay()];
+            }
+            let date = new Date();  // 3 Jan 2012
+            alert(getWeekDay(date));        // 应该输出 "TU" */
+        /* 
+        欧洲的星期表示方法
+        重要程度: 5
+        欧洲国家的星期计算是从星期一（数字 1）开始的，然后是星期二（数字 2），直到星期日（数字 7）。编写一个函数 getLocalDay(date)，并返回日期的欧洲式星期数。
+
+         */
+        // function getLocalDay(date) {
+
+        //     let day = date.getDay();
+
+        //     if (day == 0) { // weekday 0 (sunday) is 7 in european
+        //         day = 7;
+        //     }
+
+        //     return day;
+        // }
+        // let date = new Date();  // 3 Jan 2012
+        // alert(getLocalDay(date));       // 星期二，应该显示 2
+
+        /* 
+        
+        许多天之前是哪个月几号？
+        重要程度: 4
+        写一个函数 getDateAgo(date, days)，返回特定日期 date 往前 days 天是哪个月的哪一天。
+
+        例如，假设今天是 20 号，那么 getDateAgo(new Date(), 1) 的结果应该是 19 号，getDateAgo(new Date(), 2) 的结果应该是 18 号。
+
+        跨月、年也应该是正确输出：  
+         */
+        // function getDateAgo(date, days) {
+        //     let dateCopy = new Date(date);
+
+        //     dateCopy.setDate(date.getDate() - days);
+        //     return dateCopy.getDate();
+        // }
+        // let date = new Date(2015, 0, 2);
+
+        // alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+        // alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+        // alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+        /* 
+        某月的最后一天？
+        重要程度: 5
+        写一个函数 getLastDayOfMonth(year, month) 返回 month 月的最后一天。有时候是 30，有时是 31，甚至在二月的时候会是 28/29。
+
+        参数：
+
+        year —— 四位数的年份，比如 2012。
+        month —— 月份，从 0 到 11。
+        举个例子，getLastDayOfMonth(2012, 1) = 29（闰年，二月）     
+         */
+
+        /*   function getLastDayOfMonth(year, month) {
+              let date = new Date(year, month + 1, 0);
+              return date.getDate();
+          }
+  
+          alert(getLastDayOfMonth(2020, 11)); // 31
+          alert(getLastDayOfMonth(2012, 1)); // 29
+          alert(getLastDayOfMonth(2013, 1)); // 28 */
+
+        /*  今天过去了多少秒？
+         重要程度: 5
+         写一个函数 getSecondsToday() ，返回今天已经过去了多少秒？
+ 
+         例如：如果现在是 10: 00 am，并且没有夏令时转换，那么：
+ 
+         getSecondsToday() == 36000 // (3600 * 10)
+         该函数应该在任意一天都能正确运行。那意味着，它不应具有“今天”的硬编码值。 */
+        // 为获取秒数，我们可以使用今天的日期和 00: 00: 00 这个时间创建一个日期，然后使用当前时间减去该时间。
+
+        // 不同之处在于，从今天之初开始算起的时间是以毫秒计算的，我们应该将其处以 1000，进而得到秒数：
+
+        // function getSecondsToday() {
+        //     let now = new Date();
+
+        //     // 使用当前的 day/month/year 创建一个对象
+        //     let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        //     let diff = now - today; // ms difference
+        //     return Math.round(diff / 1000); // make seconds
+        // }
+
+        // alert(getSecondsToday());
+        //另一种解决方法是获取 hours/minutes/seconds，然后把它们转换为秒数：
+        // function getSecondsToday() {
+        //     let d = new Date();
+        //     return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+        // };
+
+        // alert(getSecondsToday());
+
+        // 距离明天还有多少秒？
+        // 重要程度: 5
+        // 写一个函数 getSecondsToTomorrow() ，返回距离明天的秒数。
+
+        // 例如，现在是 23: 00，那么：getSecondsToTomorrow() == 3600
+        // 为获取距离明天的毫秒数，我们可以用“明天 00: 00: 00”这个日期减去当前的日期。
+
+        // 首先我们生成“明天”，然后对其进行减法操作：
+        // function getSecondsToTomorrow() {
+        //     let now = new Date();
+
+        //     // tomorrow date
+        //     let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+        //     let diff = tomorrow - now; // difference in ms
+        //     return Math.round(diff / 1000); // convert to seconds
+        // }
+        // function getSecondsToTomorrow() {
+        //     let now = new Date();
+        //     let hour = now.getHours();
+        //     let minutes = now.getMinutes();
+        //     let seconds = now.getSeconds();
+        //     let totalSecondsToday = (hour * 60 + minutes) * 60 + seconds;
+        //     let totalSecondsInADay = 86400;
+
+        //     return totalSecondsInADay - totalSecondsToday;
+        // }
+        // alert(getSecondsToTomorrow())
+
+
+        // 格式化相对日期
+        // 写一个函数 formatDate(date) ，能够对 date 进行如下格式化：
+
+        // 如果 date 距离现在不到 1 秒，输出 "right now"。
+        // 否则，如果 date 距离现在不到 1 分钟，输出 "n sec. ago"。
+        // 否则，如果不到 1 小时，输出 "m min. ago"。
+        // 否则，以 "DD.MM.YY HH:mm" 格式输出完整日期。即："day.month.year hours:minutes"，全部以两位数格式表示，例如：31.12.16 10: 00。
+        // 举个例子：
+
+        // alert(formatDate(new Date(new Date - 1))); // "right now"
+
+        // alert(formatDate(new Date(new Date - 30 * 1000))); // "30 sec. ago"
+
+        // alert(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 min. ago"
+
+        // // 昨天的日期，例如 31.12.16 20:00
+        // alert(formatDate(new Date(new Date - 86400 * 1000)));
+        // function formatDate(date) {
+        //     let diff = new Date() - date; // 以毫秒表示的差值
+
+        //     if (diff < 1000) { // 少于 1 秒
+        //         return 'right now';
+        //     }
+
+        //     let sec = Math.floor(diff / 1000); // 将 diff 转换为秒
+
+        //     if (sec < 60) {
+        //         return sec + ' sec. ago';
+        //     }
+
+        //     let min = Math.floor(diff / 60000); // 将 diff 转换为分钟
+        //     if (min < 60) {
+        //         return min + ' min. ago';
+        //     }
+
+        //     // 格式化 date
+        //     // 将前置 0 加到一位数 day/month/hours/minutes 前
+        //     let d = date;
+        //     d = [
+        //         '0' + d.getDate(),
+        //         '0' + (d.getMonth() + 1),
+        //         '' + d.getFullYear(),
+        //         '0' + d.getHours(),
+        //         '0' + d.getMinutes()
+        //     ].map(component => component.slice(-2)); // 得到每个组件的后两位
+
+        //     // 将时间信息和日期组合在一起
+        //     return d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+
+        // }
+        function formatDate(date) {
+            let dayOfMonth = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let hour = date.getHours();
+            let minutes = date.getMinutes();
+            let diffMs = new Date() - date;
+            let diffSec = Math.round(diffMs / 1000);
+            let diffMin = diffSec / 60;
+            let diffHour = diffMin / 60;
+
+            // 格式化
+            year = year.toString().slice(-2);
+            month = month < 10 ? '0' + month : month;
+            dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
+            hour = hour < 10 ? '0' + hour : hour;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            if (diffSec < 1) {
+                return '刚刚';
+            } else if (diffMin < 1) {
+                return `${diffSec} 秒前`
+            } else if (diffHour < 1) {
+                return `${diffMin} 分钟前`
+            } else {
+                return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`
+            }
+        }
+        alert(formatDate(new Date(new Date - 1))); // "right now"
+
+        alert(formatDate(new Date(new Date - 30 * 1000))); // "30 sec. ago"
+
+        alert(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 min. ago"
+
+        // 昨天的日期如：31.12.2016 20:00
+        alert(formatDate(new Date(new Date - 86400 * 1000)));
+    </script>
+</body>
+
+</html>

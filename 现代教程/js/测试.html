@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!-- <head> —— 添加用于测试的第三方库和样式文件。
+<script> 包含测试函数，在我们的例子中 —— 和 pow 相关的代码。
+测试代码 —— 在我们的案例中是名为 test.js 的脚本，它包含上面 describe("pow", ...) 的那些代码。
+HTML 元素 <div id="mocha"> 将被 Mocha 用来输出结果。
+可以使用 mocha.run() 命令来开始测试。 -->
+
+<head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <script>
+        function pow(x, n) {
+            /* function code is to be written, empty now */
+            if (n < 0) return NaN;
+            if (Math.round(n) != n) return NaN;
+            let result = 1;
+
+            for (let i = 0; i < n; i++) {
+                result *= x;
+            }
+
+            return result;
+        }
+    </script>
+
+    <!-- the script with tests (describe, it...) -->
+    <script src="test.js"></script>
+
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- run tests! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function addEventListener(element, eventName, fn) {
+            //判断当前浏览器是否支持 addEventListener 方法
+            if (element.addEventListener) {
+                element.addEventListener(eventName, fn);//第三个参数默认false
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, fn);
+            } else {
+                //相当于element.onclick=fn;
+                element('on' + eventName) = fn;
+            }
+        }
+        //兼容性处理原则：首先照顾绝大多数浏览器，再处理特殊浏览器
+    </script>
+</body>
+
+</html>

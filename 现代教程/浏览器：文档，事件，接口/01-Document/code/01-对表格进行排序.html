@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Pete</td>
+                <td>Brown</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Ann</td>
+                <td>Lee</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+               let sortedRows = Array.from(table.tBodies[0].rows)
+            //    console.log(table.tBodies[0].rows)
+            //     .sort((rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML));
+            .sort((rowA, rowB) => console.log(rowA.cells,rowB));
+            //   table.tBodies[0].append(...sortedRows);
+
+//             从 <tbody> 获取所有 <tr>。
+// 然后将它们按第一个 <td>（name 字段）中的内容进行比较。
+// 然后使用 .append(...sortedRows) 按正确的顺序插入节点。
+// 我们不必删除行元素，只需要“重新插入”，它们就会自动离开原来的位置。
+    </script>
+</body>
+
+</html>

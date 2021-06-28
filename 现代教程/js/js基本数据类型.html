@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let var const
+        //javascript 8种数据类型 
+        //7种基本数据类型(Number BigInt Boolean String Null Undefind symbol) 1种引用类型(复杂数据类型) Object
+        /* let result=  prompt('请输入你的名字','');
+        alert(result) */
+        /*
+              let result=confirm('are you ready?')
+              console.log(result)
+              if(result===true){
+                  alert(true)
+              }else{
+                  alert(false)
+              } */
+        /*  let a= "" + 1 + 0//10
+         let b= "" - 1 + 0//-1
+         let c=  true + false//1
+         let d=   6 / "3"//2
+         let e=  "2" * "3"//6
+         let f=   4 + 5 + "px"//9px
+         let g=  "$" + 4 + 5//$45
+         let h=  "4" - 2//2
+         let j=  "4px" - 2//NaN
+         let k=  7 / 0//Infinity 
+         let l=  "  -9  " + 5//-9  5
+         let m=  "  -9  " - 5//-14
+         let n=  null + 1//1
+         let o=  undefined + 1//NaN
+         let p=  " \t \n" - 2//-2
+         console.log(a,b,c,d,e,f,g,h,j,k,l,m,n,o,p) */
+        /* let a = 5 > 4
+        let b = "apple" > "pineapple"
+        let c = "2" > "12"
+        let d = undefined == null
+        let e =  undefined === null
+        let f = null == "\n0\n"
+        let g =  null === +"\n0\n"
+        console.log(a,b,c,d,e,f,g)  */
+
+        /*  let result = prompt("Who's there?", '');
+         if (result == 'Admin') {
+             let res = prompt('Password', '');
+             if (res == 'TheMaster') {
+                 alert('Welcome!');
+             } else if (res == ''||res==null) {
+                 alert('Canceled');
+             }else{
+                 alert('Wrong password');
+             }
+         }else if(result == ''||result==null){
+             alert('Canceled');
+         }else{
+             alert("I don't know you");
+         } */
+        /* let i = 3;
+
+        while (i) {
+            alert(i--);
+        } */
+        /*    let i = 0;
+           while (++i < 5) alert(i); //1 2 3 4*/
+        /* let i = 0;
+        while (i++ < 5) alert(i);//1 2 3 4 5 */
+        //for (let i = 0; i < 5; i++) alert( i );//0 1 2 3 4
+        //for (let i = 0; i < 5; ++i) alert( i );//0 1 2 3 4
+
+        //使用 for 循环输出从 2 到 10 的偶数。
+        /*  for(let i=0;i<=10;i++){
+             let result=i%2
+             if(result==0&&i>=2){
+                 console.log(i)
+             }
+             
+         } */
+        /* let i=0;
+        while(i<=10){
+            i++
+            if(i%2==0){
+                console.log(i)
+            }
+            
+        } */
+
+        /* let result = prompt('请输入大于100的数字', '')
+        if (result == null || result == '' || result <= 100) {
+            result = prompt('请输入大于100的数字', '')
+
+        } */
+        /*   let n = prompt('请指定n，将输出2-n之间的素数', '')
+          //n > 1 且不能被 1 和 n 以外的任何数整除的整数，被称为素数。
+          showPrimes(n)
+          function showPrimes(n) {
+  
+              for (let i = 2; i < n; i++) {
+                  if (!isPrime(i)) continue;
+  
+                  console.log(i);  // 一个素数
+              }
+          }
+  
+          function isPrime(n) {
+              for (let i = 2; i < n; i++) {
+                  if (n % i == 0) return false;
+              }
+              return true;
+          } */
+        //checkAge(10)
+        /*  function checkAge(age) {
+             if (age > 18) {
+                 return true;
+             } else {
+                 return confirm('Did parents allow you?');
+             }
+         } */
+        /*  function checkAge(age) {
+             if (age > 18) {
+                 return true;
+             }
+             // ...
+             return confirm('Did parents allow you?');
+         } */
+        /* function checkAge(age) {
+            return age>18?true: confirm('Did parents allow you?');
+        } */
+        /* min(10,5)
+        function min(a,b){
+            return a>b?alert(b):alert(a)
+        } */
+        pow(2,4)
+        function pow(x, n) {
+            return alert(x ** n)
+        }
+    </script>
+</body>
+
+</html>

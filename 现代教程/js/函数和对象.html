@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* //普通函数
+        function ask(question, yes, no) {
+            if (confirm(question)) yes()
+            else no();
+        }
+      
+        ask(
+            "Do you agree?",
+            function () { alert("You agreed."); },
+            function () { alert("You canceled the execution."); }
+        );
+        //箭头函数
+        let ask= (question, yes, no) => confirm(question) ? yes() : no()
+        ask(
+            "Do you agree",
+            () => alert("You agreed?."),() => alert("You canceled the execution.")
+        ) */
+
+
+
+
+        //对象
+        // let user = new Object(); // “构造函数” 的语法
+        //let user = {};  // “字面量” 的语法
+        /* let user = {};  // “字面量” 的语法
+        user.name='john';
+        user.surname='Smith';
+        user.name='pete';
+        delete user.name;
+        console.log(user); */
+
+        /* 
+                //写一个 isEmpty(obj) 函数，当对象没有属性的时候返回 true，否则返回 false。
+                let schedule = {};
+        
+                alert(isEmpty(schedule)); // true
+        
+                //schedule["8:30"] = "get up";
+        
+                alert(isEmpty(schedule)); // false
+                function isEmpty(obj) {
+                    let name;
+                    for (name in obj) {
+                        return false;
+                    }
+                    return true;
+                } */
+
+
+        /*    //我们有一个保存着团队成员工资的对象：
+           //写一段代码求出我们的工资总和，将计算结果保存到变量 sum。从所给的信息来看，结果应该是 390。
+           //如果 salaries 是一个空对象，那结果就为 0。
+           let salaries = {
+               John: 100,
+               Ann: 160,
+               Pete: 130
+           }
+           if (isEmpty(salaries)) {
+               salaries.sum = 0
+               console.log(salaries)
+           } else {
+               let sum = 0
+               for (let key in salaries) {
+                   sum = sum + salaries[key]
+               }
+               salaries.sum = sum
+               console.log(salaries)
+           }
+           function isEmpty(obj) {
+               let name;
+               for (name in obj) {
+                   return false;
+               }
+               return true;
+           }  */
+        /* 
+                //创建一个 multiplyNumeric(obj) 函数，把 obj 所有的数值属性都乘以 2。
+        
+                //  例如：
+        
+                // 在调用之前
+                // let menu = {
+                //    width: 200,
+                //    height: 300,
+                //     title: "My menu"
+                //  };
+        
+                //  multiplyNumeric(menu);
+        
+                // 调用函数之后
+                // menu = {
+                //    width: 400,
+                //    height: 600,
+                //    title: "My menu"
+                // };
+                // 注意 multiplyNumeric 函数不需要返回任何值，它应该就地修改对象。
+        
+                // P.S.用 typeof 检查值类型。
+                // 在调用之前
+                let menu = {
+                    width: 200,
+                    height: 300,
+                    title: "My menu"
+                };
+                multiplyNumeric(menu);
+                function multiplyNumeric(obj) {
+                    if (typeof (obj) == "object") {
+                        for (let key in obj) {
+                            if (typeof (obj[key])== "number" ) {
+                                obj[key] = obj[key] * 2
+                            }
+                        }
+                    } else {
+                        alert('不是对象')
+                    }
+                }
+                console.log(menu) */
+
+
+        //2020/10/23
+        /*  function makeUser() {
+             return {
+                 name: "John",
+                 ref: this
+             };
+         };
+ 
+         let user = makeUser();
+ 
+         alert(user.ref.name); */
+
+
+
+        /*  //创建一个有三个方法的 calculator 对象：
+ 
+         //read() 提示输入两个值，并将其保存为对象属性。
+         //sum() 返回保存的值的和。
+         //mul() 将保存的值相乘并返回计算结果。
+         //let calculator = {
+         // ……你的代码……
+         //};
+ 
+         //calculator.read();
+         //alert( calculator.sum() );
+         //alert( calculator.mul() );
+         let calculator = {
+             read() {
+                 this.a = prompt("a?", 0)
+                 this.b = prompt("b?", 0)
+             },
+             sum() {
+                 this.c = Number(this.a) + Number(this.b)
+                 return this.c
+             },
+             mul() {
+                 return this.c * this.c
+             }
+         };
+ 
+         calculator.read();
+         alert(calculator.sum());
+         alert(calculator.mul());
+         //console.log(calculator,66) */
+
+        //链式（调用）
+        // 重要程度: 2
+        //有一个可以上下移动的 ladder 对象：
+
+        //let ladder = {
+        // step: 0,
+        // up() {
+        //   this.step++;
+        // },
+        // down() {
+        //    this.step--;
+        // },
+        // showStep: function () { // 显示当前的 step
+        //     alert(this.step);
+        // }
+        //  };
+        //现在，如果我们要按顺序执行几次调用，可以这样做：
+
+        //ladder.up();
+        //  ladder.up();
+        // ladder.down();
+        //  ladder.showStep(); // 1
+        // 修改 up，down 和 showStep 的代码，让调用可以链接，就像这样：
+
+        // ladder.up().up().down().showStep(); // 1
+        // 这种方法在 JavaScript 库中被广泛使用。
+        /*  let ladder = {
+             step: 0,
+             up() {
+                 this.step++;
+                 return this;
+             },
+             down() {
+                 this.step--;
+                 return this;
+             },
+             showStep: function () { // 显示当前的 step
+                 alert(this.step);
+                 return this;
+             }
+         };
+        console.log(ladder.up().up().down().showStep())  */
+
+
+        /*   
+          let obj = {};
+          function A() {
+  
+              return obj;
+          }
+  
+          function B() {
+              return obj;
+          }
+  
+          let a = new A();
+          let b = new B();
+          console.log(a)
+          console.log(b)
+          alert(a == b); // true */
+        /*  //创建一个构造函数 Calculator，它创建的对象中有三个方法：
+ 
+         // read() 使用 prompt 请求两个值并把它们记录在对象的属性中。
+         // sum() 返回这些属性的总和。
+         //mul() 返回这些属性的乘积。
+         // 例如：
+         function Calculator() {
+             let obj = {};
+             this.read = function () {
+                 obj.a = prompt('a?', 0)
+                 obj.b = prompt('b?', 0)
+             }
+             this.sum = function () {
+                 return Number(obj.a)+ Number(obj.b)
+             }
+             this.mul = function () {
+                 return obj.a * obj.b
+             }
+         }
+         let calculator = new Calculator();
+         calculator.read();
+ 
+         alert("Sum=" + calculator.sum());
+         alert("Mul=" + calculator.mul()); */
+        /* //解决方案
+        function Calculator() {
+        
+        this.read = function() {
+          this.a = +prompt('a?', 0);
+          this.b = +prompt('b?', 0);
+        };
+        
+        this.sum = function() {
+          return this.a + this.b;
+        };
+        
+        this.mul = function() {
+          return this.a * this.b;
+        };
+        }
+        
+        let calculator = new Calculator();
+        calculator.read();
+        
+        alert( "Sum=" + calculator.sum() );
+        alert( "Mul=" + calculator.mul() ); */
+
+
+        /* 
+                //创建一个构造函数 Accumulator(startingValue) 。
+        
+                //它创建的对象应该：
+        
+                //将“当前 value”存储在属性 value 中。起始值被设置到构造器 startingValue 的参数。
+                //read() 方法应该使用 prompt 来读取一个新的数字，并将其添加到 value 中。
+                // 换句话说，value 属性是所有用户输入值与初始值 startingValue 的总和。
+        
+                // 下面是示例代码：
+                function Accumulator(startingValue) {
+                    this.read = function () {
+                        this.value = + prompt('How much to add?', 0)+startingValue
+                    }
+                }
+                let accumulator = new Accumulator(1); // 初始值 1
+        
+                accumulator.read(); // 添加用户输入的 value
+                accumulator.read(); // 添加用户输入的 value
+        
+                alert(accumulator.value); // 显示这些值的总和 */
+        /* //解决方案
+        function Accumulator(startingValue) {
+            this.value = startingValue;
+
+            this.read = function () {
+                this.value += +prompt('How much to add?', 0);
+            };
+
+        }
+
+        let accumulator = new Accumulator(1);
+        accumulator.read();
+        accumulator.read();
+        alert(accumulator.value); */
+
+
+    </script>
+</body>
+
+</html>

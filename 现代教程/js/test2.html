@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 30px;
+        height: 30px;
+        background: red;
+    }
+</style>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+                var dragging = false
+                var position = null
+        
+                box.addEventListener('mousedown', function (e) {
+                    console.log(e,5)
+                    dragging = true
+                    position = [e.clientX, e.clientY]
+                })
+        
+        
+                document.addEventListener('mousemove', function (e) {
+                    
+                    if (dragging === false) return null
+                    console.log(e,3)
+                    const x = e.clientX
+                    const y = e.clientY
+                    const deltaX = x - position[0]
+                    const deltaY = y - position[1]
+                    const left = parseInt(box.style.left || 0)
+                    const top = parseInt(box.style.top || 0)
+                    box.style.left = left + deltaX + 'px'
+                    box.style.top = top + deltaY + 'px'
+                    position = [x, y]
+                })
+                document.addEventListener('mouseup', function (e) {
+                    console.log(e,4)
+                    dragging = false
+                }) */
+        /* let array=[15.5, 2.3, 1.1, 4.7];
+        array.reduce(function(total, currentValue, currentIndex, arr){
+            console.log(total,'total')
+            console.log(currentValue,'currentValue')
+            console.log(currentIndex,'currentIndex')
+            console.log(arr,'arr')
+        }) */
+
+
+        /*    console.log('start')
+           setTimeout(() => {//宏任务
+               console.log('timeout')
+           }, 0)
+           Promise.resolve('pro').then(res => console.log(res))//微任务
+           console.log('End') */
+
+        /* const one=()=>Promise.resolve('One')
+        async function myFunc(){
+            console.log('In function')
+            const res=await one()
+            console.log(res,55)
+        }
+        console.log('Before function')
+        myFunc();
+        console.log('After function') */
+
+        /*   function flatDeep(arr, d = 1) {//「将多维度的数组降为一维数组」
+          console.log(d)
+              return d > 0 ? arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatDeep(val, d - 1) : val),
+                  []) :
+                  arr.slice();
+          };
+  
+          var arr1 = [1, 2, 3, [1, 2, 3, 4, [2, 3, 4]]];
+         console.log(flatDeep(arr1, Infinity))  */
+
+
+        /*  function deepClone(obj, map = new WeakMap()) {
+             if (obj instanceof RegExp) return new RegExp(obj);
+             if (obj instanceof Date) return new Date(obj);
+ 
+             if (obj == null || typeof obj != 'object') return obj;
+             if (map.has(obj)) {
+                 return map.get(obj);
+             }
+             let t = new obj.constructor();
+             map.set(obj, t);
+             for (let key in obj) {
+                 if (obj.hasOwnProperty(key)) {
+                     t[key] = deepClone(obj[key], map);
+                 }
+             }
+             return t;
+         }
+         //测试用例
+         let obj = {
+             a: 1,
+             b: {
+                 c: 2,
+                 d: 3
+             },
+             d: new RegExp(/^\s+|\s$/g)
+         }
+ 
+         let clone_obj = deepClone(obj)
+         obj.d = /^\s|[0-9]+$/g
+         console.log(clone_obj)
+         console.log(obj) */
+        /*  // 实现call
+ 
+        //改变this指向
+         Function.prototype.mycall = function () {
+             let [thisArg, ...args] = [...arguments]
+             thisArg = Object(thisArg) || window
+             let fn = Symbol()
+             thisArg[fn] = this
+             let result = thisArg[fn](...args)
+             delete thisArg[fn]
+             return result
+         }
+         // 实现apply
+         Function.prototype.myapply = function () {
+             let [thisArg, args] = [...arguments];
+             thisArg = Object(thisArg)
+             let fn = Symbol()
+             thisArg[fn] = this;
+             let result = thisArg[fn](...args);
+             delete thisArg.fn;
+             return result;
+         }
+ 
+         //测试用例
+         let cc = {
+             a: 2
+         }
+ 
+         function demo(x1, x2) {
+             console.log(typeof this, this.a, this)
+             console.log(x1, x2)
+         }
+         /* demo.apply(cc, [4, 6])
+         demo.myapply(cc, [2, 3]) 
+         demo.call(cc, 33, 44)
+         demo.mycall(cc, 33, 44) */
+
+
+        // 实现bind
+        /*  Function.prototype.mybind = function (context, ...args) {
+             return (...newArgs) => {
+                 return this.call(context, ...args, ...newArgs)
+             }
+         }
+ 
+         // 测试用例
+         let cc = {
+             name: 'TianTian'
+         }
+         function say(something, other) {
+             console.log(`I want to tell ${this.name} ${something}`);
+             console.log('This is some' + other)
+         }
+         let tmp = say.mybind(cc, 'happy', 'you are kute')
+         let tmp1 = say.bind(cc, 'happy', 'you are kute')
+         tmp()
+         tmp1() */
+        /*      obj.myFun.call(db,'成都','上海')；　　　　 // 德玛 年龄 99  来自 成都去往上海
+     obj.myFun.apply(db,['成都','上海']);      // 德玛 年龄 99  来自 成都去往上海  
+     obj.myFun.bind(db,'成都','上海')();       // 德玛 年龄 99  来自 成都去往上海
+     obj.myFun.bind(db,['成都','上海'])();　　 // 德玛 年龄 99  来自 成都, 上海去往 undefined　　
+     微妙的差距！
+     
+     从上面四个结果不难看出:
+     
+     call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：
+     
+     call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,'成都', ... ,'string' )。
+     
+     apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,['成都', ..., 'string' ])。
+     
+     bind 除了返回是函数以外，它 的参数和 call 一样。
+     
+     当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！ */
+        /*   var name = '小王', age = 17;
+          var obj = {
+              name: '小张',
+              objAge: this.age,
+              myFun(fm,t) {
+                  console.log(this.name + '年龄' + this.age, "来自" + fm + "去往" + t)
+              }
+          }
+          var db = {
+              name: '德玛',
+              age: 99,
+          }
+          obj.myFun.call(db, '成都', '上海') ;　　　　 //德玛 年龄 99  来自 成都去往上海
+          obj.myFun.apply(db, ['成都', '上海']);        //德玛 年龄 99  来自 成都去往上海  
+          obj.myFun.bind(db, '成都', '上海')();         //德玛 年龄 99  来自 成都去往上海
+          obj.myFun.bind(db, ['成都', '上海'])();　　 //德玛 年龄 99  来自 成都,上海去往undefined */
+
+
+        /*  var a,b=0;
+         console.log(a,b)//undefind 0
+         fn=function(){
+             var a=2;
+             var b=2;//用var a=1,b=1的方式变量a和变量b的作用域都是局部
+             
+         };
+         fn();
+         console.log(a,b)//undefind 0
+ */
+/* 
+         var a,b=0;
+         console.log(a,b)//undefind 0
+         fn=function(){
+             var a=b=2;//用var a=b=1的方式 变量b的作用域是全局的，变量a是局部的
+
+             
+         };
+         fn();
+         console.log(a,b)//undefind 2
+ */
+
+
+
+        /* function keith(a, b, c) {
+            console.log(arguments[0]); //1
+            console.log(arguments[2]); //3
+            console.log(arguments.length); //4
+            //通常使用如下方法把arguments对象转换为数组。
+
+            var arr = Array.prototype.slice.call(arguments);
+            console.log(arr)
+        }
+        keith(1, 2, 3, 4); */
+/*
+        var a = 1;
+        function keith() {
+         return a;
+         var b = 2;
+         }
+         console.log(keith()); //1
+         console.log(b); //ReferenceError: b is not defined */
+    </script>
+</body>
+
+</html>

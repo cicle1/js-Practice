@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            width: 500px;
+            margin: 200px auto;
+          
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav li{
+            list-style: none;
+            text-align: center;
+        }
+        .nav ul{
+            text-align: center;
+            display: none;
+        }
+        .nav ul li a:hover {
+            background-color: #FFF5DA;
+        }
+    </style>
+</head>
+
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="javascript:;">微博</a>
+            <ul>
+                <li><a href="">私信</a></li>
+                <li><a href="">评论</a></li>
+                <li><a href="">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">qq</a>
+            <ul>
+                <li><a href="">私信</a></li>
+                <li><a href="">评论</a></li>
+                <li><a href="">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">支付宝</a>
+            <ul>
+                <li><a href="">私信</a></li>
+                <li><a href="">评论</a></li>
+                <li><a href="">@我</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        //1.获取元素
+        let nav=document.querySelector('.nav');
+        let lis=nav.children;//得到小li
+        for(let i=0;i<lis.length;i++){
+            lis[i].onmouseover=function(){
+                this.children[1].style.display='block'
+            }
+            lis[i].onmouseout=function(){
+                this.children[1].style.display='none'
+            }
+        }
+    </script>
+</body>
+
+</html>

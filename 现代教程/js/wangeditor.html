@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="div1">
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="https://unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
+<script type="text/javascript">
+    const E = window.wangEditor
+    const editor = new E('#div1')
+    editor.config.onchange = function (newHtml) {
+        console.log('change 之后最新的 html', newHtml)
+        setTimeout(function () {
+        editor.fullScreen() // 全屏
+        editor.txt.clear()
+        editor.txt.html(newHtml) // 重新设置编辑器内容
+    }, 10000)
+    }
+    // 配置全屏功能按钮是否展示
+    editor.create()
+    editor.txt.html('<h1>用 JS 设置的内容</h1>') // 重新设置编辑器内容
+ 
+
+</script>

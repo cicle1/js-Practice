@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>https://zh.javascript.info/size-and-scroll-window#chuang-kou-de-widthheight</title>
+</head>
+<body>
+    <!-- 
+        总结
+几何：
+
+文档可见部分的 width/height（内容区域的 width/height）：document.documentElement.clientWidth/clientHeight
+
+整个文档的 width/height，其中包括滚动出去的部分：
+
+let scrollHeight = Math.max(
+  document.body.scrollHeight, document.documentElement.scrollHeight,
+  document.body.offsetHeight, document.documentElement.offsetHeight,
+  document.body.clientHeight, document.documentElement.clientHeight
+);
+滚动：
+
+读取当前的滚动：window.pageYOffset/pageXOffset。
+
+更改当前的滚动：
+
+window.scrollTo(pageX,pageY) — 绝对坐标，
+window.scrollBy(x,y) — 相对当前位置进行滚动，
+elem.scrollIntoView(top) — 滚动以使 elem 可见（elem 与窗口的顶部/底部对齐）。
+     -->
+</body>
+</html>
